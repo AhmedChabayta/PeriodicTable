@@ -3,7 +3,6 @@ import { useState } from "react";
 import Element from "../components/Element";
 import eData from "../elementsData.json";
 
-
 export default function Home() {
   const [search, setSearch] = useState("");
   const [element, setElement] = useState([]);
@@ -36,7 +35,8 @@ export default function Home() {
           <div key={index} className="elements">
             <Element item={item} />
             <div
-              className="absolute flex space-x-5"
+              key={1}
+              className="absolute flex space-x-5 font-thin"
               style={{ gridColumn: 4, gridRow: 1 }}
             >
               <div className="flex flex-col space-y-2">

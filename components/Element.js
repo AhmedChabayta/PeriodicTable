@@ -8,7 +8,7 @@ function Element({
   };
   return (
     <div
-      className="relative z-10 bg-black h-full pl-1 flex cursor-grab hover:scale-[3] hover:translate-y-[50px] hover:z-50"
+      className="relative z-10 bg-black h-full pl-1 flex cursor-grab hover:scale-[3] hover:z-50"
       style={styles}
       key={atomicMass}
     >
