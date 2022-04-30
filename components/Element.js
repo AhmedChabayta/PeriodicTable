@@ -5,10 +5,11 @@ function Element({
     gridColumn: xpos,
     gridRow: ypos,
     color: color,
+    borderColor: color,
   };
   return (
     <div
-      className="relative z-10 bg-black h-full pl-1 flex cursor-grab hover:scale-[3] hover:z-50"
+      className="item relative z-10 bg-black h-full pl-1 flex cursor-pointer hover:scale-[3] hover:z-50 hover:bg-stone-900 hover:border-2 transform-gpu transition-all duration-150 "
       style={styles}
       key={atomicMass}
     >

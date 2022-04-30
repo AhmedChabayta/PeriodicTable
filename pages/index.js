@@ -10,11 +10,14 @@ export default function Home() {
 
   const filteredElements = eData.filter((item) => {
     return (
-      item.name &&
-      item.name.toLowerCase &&
+      item.name,
+      item.name.toLowerCase,
       item.name.toLowerCase().includes(search.toLowerCase())
     );
   });
+  const searchELements = (event) => {
+    setSearch(event.target.value);
+  };
 
   return (
     <div className="h-screen w-screen relative bg-black text-white">
@@ -26,9 +29,8 @@ export default function Home() {
       <input
         className="w-screen h-10 bg-black text-center"
         type="text"
-        onChange={(event) => {
-          setSearch(event.target.value);
-        }}
+        value={search}
+        onChange={searchELements.bind(this)}
       />
       <div className="flex justify-center items-center mt-[400px]">
         {filteredElements.map((item, index) => (
