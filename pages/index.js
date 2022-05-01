@@ -1,15 +1,17 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useState } from "react";
+import { client } from "../lib/client";
 import Element from "../components/Element";
 import Legend from "../components/Legend";
-import eData from "../elementsData.json";
 
-export default function Home() {
+export default function Home({ elements }) {
+  console.log(elements);
   const [search, setSearch] = useState("");
-  const [element, setElement] = useState([]);
-  const [checked, setChecked] = useState(true);
+  const [element, setElement] = useState(null);
+  const [isLoading, setLoading] = useState(false);
 
-  const filteredElements = eData.filter((item) => {
+  const filteredElements = elements.filter((item) => {
     return (
       item.name,
       item.name.toLowerCase,
@@ -28,19 +30,31 @@ export default function Home() {
         <link ritem="icon" href="/favicon.ico" />
       </Head>
       <input
-        className="w-screen h-10 bg-black text-center"
+        className="w-screen h-10 bg-black text-center placeholder:text-opacity-50"
         type="text"
         value={search}
+        placeholder="search elements"
         onChange={searchELements.bind(this)}
       />
       <div className="flex justify-center items-center mt-[400px]">
-        {filteredElements.map((item, index) => (
-          <div key={index} className="elements">
-            <Element item={item} />
-          </div>
+        {filteredElements.map((element, index) => (
+          // eslint-disable-next-line @next/next/link-passhref
+          <Link key={index} href={`./elements/` + element.slug.current}>
+            <div className="elements">
+              <Element element={element} />
+            </div>
+          </Link>
         ))}
         <Legend />
       </div>
     </div>
   );
 }
+export const getStaticProps = async () => {
+  const query = '*[_type == "element"]';
+  const elements = await client.fetch(query);
+
+  return {
+    props: { elements },
+  };
+};
