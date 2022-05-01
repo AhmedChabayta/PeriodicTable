@@ -6,22 +6,21 @@ import Element from "../components/Element";
 import Legend from "../components/Legend";
 
 export default function Home({ elements }) {
-  console.log(elements);
   const [search, setSearch] = useState("");
   const [element, setElement] = useState(null);
   const [isLoading, setLoading] = useState(false);
+  const [filter, setFilter] = useState();
 
-  const filteredElements = elements.filter((item) => {
+  const filteredElements = elements.filter((element) => {
     return (
-      item.name,
-      item.name.toLowerCase,
-      item.name.toLowerCase().includes(search.toLowerCase())
+      element.name,
+      element.name.toLowerCase,
+      element.name.toLowerCase().includes(search.toLowerCase())
     );
   });
   const searchELements = (event) => {
     setSearch(event.target.value);
   };
-
   return (
     <div className="h-screen w-screen relative bg-black text-white">
       <Head>
