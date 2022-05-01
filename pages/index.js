@@ -16,7 +16,6 @@ export default function Home({ elements }) {
       element.name,
       element.name.toLowerCase,
       element.name.toLowerCase().includes(search.toLowerCase()),
-      element.symbol.toLowerCase().includes(search.toLowerCase())
     );
   });
   const searchELements = (event) => {
