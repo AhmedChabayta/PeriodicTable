@@ -9,7 +9,7 @@ function Element({
   };
   return (
     <div
-      className="item relative z-10 bg-black h-full pl-1 flex cursor-pointer group hover:scale-[1.5] hover:z-50 hover:bg-stone-900 hover:border-2 transform-gpu transition-all duration-150 "
+      className="item relative z-10 h-full pl-1 flex border-[0.01px] border-white cursor-pointer group hover:scale-[1.5] hover:z-50 hover:bg-stone-900 hover:border-2 transform-gpu transition-all duration-150 "
       style={styles}
       key={atomicMass}
     >

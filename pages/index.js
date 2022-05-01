@@ -15,7 +15,8 @@ export default function Home({ elements }) {
     return (
       element.name,
       element.name.toLowerCase,
-      element.name.toLowerCase().includes(search.toLowerCase())
+      element.name.toLowerCase().includes(search.toLowerCase()),
+      element.symbol.toLowerCase().includes(search.toLowerCase())
     );
   });
   const searchELements = (event) => {
@@ -29,7 +30,7 @@ export default function Home({ elements }) {
         <link ritem="icon" href="/favicon.ico" />
       </Head>
       <input
-        className="w-screen h-10 bg-black text-center placeholder:text-opacity-50"
+        className="text-center form-control block w-full px-3 py-1.5 text-base font-normal text-gray-100 bg-black bg-clip-padding transition ease-in-out m-0 focus:text-white focus:outline-none"
         type="text"
         value={search}
         placeholder="search elements"

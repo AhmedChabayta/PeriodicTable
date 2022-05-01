@@ -21,6 +21,7 @@ export default function Elements({
     description,
     electronConfiguration,
     color,
+    shells,
   },
 }) {
   console.log(name);
@@ -31,36 +32,45 @@ export default function Elements({
   };
   return (
     <div className="p-10 flex justify-between bg-black h-screen text-white">
-      <div className="whitespace-nowrap">
-        <h1>{number}</h1>
-        <p>{period}</p>
-        <h1 style={{ color: color }} className="text-9xl font-black">
-          {symbol}
-        </h1>
-        <h3 className="text-5xl mb-5">{name}</h3>
-        <h2>
-          <span style={coloredText}>Category: </span> {category}
-        </h2>
-        <h2>
-          <span style={coloredText}>Atomic Mass: </span> {atomicMass}
-        </h2>
-        <h2>
-          <span style={coloredText}>Boiling Tempreture:</span> {boil}
-          <span style={coloredText}> °C</span>
-        </h2>
-        <h2>
-          <span style={coloredText}>Melting Tempreture:</span> {melt}
-          <span style={coloredText}> °C</span>
-        </h2>
-        <h2>
-          <span style={coloredText}>Molar Heat: </span> {molarHeat}
-        </h2>
-        <h2>
-          {density} <span style={coloredText}>g/cm³</span>
-        </h2>
-        <h1>
-          <span style={coloredText}>Phase: </span> {phase}
-        </h1>
+      <div className="flex">
+        <div className="whitespace-nowrap flex flex-col">
+          <h1>{number}</h1>
+          <p>{period}</p>
+          <h1 style={{ color: color }} className="text-9xl font-black">
+            {symbol}
+          </h1>
+          <h3 className="text-5xl mb-5">{name}</h3>
+          <h2>
+            <span style={coloredText}>Category: </span> {category}
+          </h2>
+          <h2>
+            <span style={coloredText}>Atomic Mass: </span> {atomicMass}
+          </h2>
+          <h2>
+            <span style={coloredText}>Boiling Tempreture:</span> {boil}
+            <span style={coloredText}> °C</span>
+          </h2>
+          <h2>
+            <span style={coloredText}>Melting Tempreture:</span> {melt}
+            <span style={coloredText}> °C</span>
+          </h2>
+          <h2>
+            <span style={coloredText}>Molar Heat: </span> {molarHeat}
+          </h2>
+          <h2>
+            {density} <span style={coloredText}>g/cm³</span>
+          </h2>
+          <h1>
+            <span style={coloredText}>Phase: </span> {phase}
+          </h1>
+        </div>
+        <div className="flex flex-col items-end justify-start">
+          {shells.map((shell, index) => (
+            <p key={index} className="">
+              {shell}
+            </p>
+          ))}
+        </div>
       </div>
       <div className="flex items-end justify-between w-screen">
         <div className="flex absolute left-5">
