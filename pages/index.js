@@ -7,15 +7,12 @@ import Legend from "../components/Legend";
 
 export default function Home({ elements }) {
   const [search, setSearch] = useState("");
-  const [element, setElement] = useState(null);
-  const [isLoading, setLoading] = useState(false);
-  const [filter, setFilter] = useState();
 
   const filteredElements = elements.filter((element) => {
     return (
       element.name,
       element.name.toLowerCase,
-      element.name.toLowerCase().includes(search.toLowerCase()),
+      element.name.toLowerCase().includes(search.toLowerCase())
     );
   });
   const searchELements = (event) => {

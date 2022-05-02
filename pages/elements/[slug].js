@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { client } from "../../lib/client";
+import { motion } from "framer-motion";
 
 export default function Elements({
   elements: {
@@ -36,10 +37,26 @@ export default function Elements({
         <div className="whitespace-nowrap flex flex-col">
           <h1>{number}</h1>
           <p>{period}</p>
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              repeatType: "loop",
+              easing: "easeInOut",
+            }}
+            className=" relative rounded-full h-10 w-10 place-self-center bg-black"
+          >
+            <motion.div
+              style={{ backgroundColor: color }}
+              className="h-5 w-5 rounded-full absolute -top-5"
+            />
+          </motion.div>
           <h1 style={{ color: color }} className="text-9xl font-black">
             {symbol}
           </h1>
           <h3 className="text-5xl mb-5">{name}</h3>
+
           <h2>
             <span style={coloredText}>Category: </span> {category}
           </h2>

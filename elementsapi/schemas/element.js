@@ -46,7 +46,7 @@ export default {
     {
       name: "melt",
       title: "Melt",
-      type: "number",
+      type: "string",
     },
     {
       name: "molarHeat",
@@ -77,7 +77,7 @@ export default {
     {
       name: "description",
       title: "Description",
-      type: "string",
+      type: "text",
     },
     {
       name: "symbol",
