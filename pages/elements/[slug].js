@@ -38,18 +38,43 @@ export default function Elements({
           <h1>{number}</h1>
           <p>{period}</p>
           <motion.div
-            animate={{ rotate: 360 }}
+            animate={{ rotate: 3600 }}
             transition={{
-              duration: 5,
+              type: "spring",
+              stiffness: 0.1,
               repeat: Infinity,
-              repeatType: "loop",
-              easing: "easeInOut",
+              repeatType: "reverse",
+              velocity: 0,
             }}
-            className=" relative rounded-full h-10 w-10 place-self-center bg-black"
+            className="relative flex justify-center items-center rounded-full h-5 w-5 place-self-center mb-9 bg-transparent group"
           >
             <motion.div
               style={{ backgroundColor: color }}
-              className="h-5 w-5 rounded-full absolute -top-5"
+              className="h-3 w-3 rounded-full absolute -top-7 group-hover:invert z-30"
+            />
+            <motion.div
+              style={{ backgroundColor: color }}
+              className="h-3 w-3 rounded-full absolute -bottom-7 group-hover:invert z-30"
+            />
+            <motion.div
+              style={{ backgroundColor: color }}
+              className="h-3 w-3 rounded-full absolute -left-7 group-hover:invert z-30"
+            />
+            <motion.div
+              style={{ backgroundColor: color }}
+              className="h-3 w-3 rounded-full absolute -right-7 group-hover:invert z-30"
+            />
+            <motion.div
+              style={{ backgroundColor: color }}
+              className="h-5 w-5 rounded-full absolute group-hover:invert"
+            />
+            <motion.div
+              style={{ backgroundColor: "transparent", borderColor: color }}
+              className="h-10 w-10 rounded-full absolute border-2"
+            />
+            <motion.div
+              style={{ backgroundColor: "transparent", borderColor: color }}
+              className="h-16 w-16 rounded-full absolute border-2"
             />
           </motion.div>
           <h1 style={{ color: color }} className="text-9xl font-black">
